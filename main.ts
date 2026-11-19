@@ -1,11 +1,12 @@
 // Leonida Ledger — entry program for gta6-trophy-guide-01.
-// It ships the finished guide (app/) and its screenshots to the output
-// folder and writes dossier.json with the kit's vendored builder, so the
-// judge can read the guide's outline and screenshots. The app itself is
-// plain static files under app/: no build step, no network at runtime,
-// trophy data in app/data/trophies.json. Keep vendor/makefun-frontend.ts
-// untouched — the scorer rebuilds the dossier with its own copy and the
-// two must match byte for byte.
+// It bundles the finished guide (app/) together with its screenshots
+// into the output folder and writes dossier.json using the kit's
+// vendored builder, so the judge can read the guide's outline and its
+// screenshots. The app itself is plain static files under app/: no
+// build step, no network at runtime, trophy data in
+// app/data/trophies.json. Leave vendor/makefun-frontend.ts alone — the
+// scorer rebuilds the dossier with its own copy and the two must
+// match byte for byte.
 //
 // Run it locally with:
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
