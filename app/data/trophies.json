@@ -15,7 +15,7 @@
    "hidden": false,
    "count": null,
    "roadmap_stage": 5,
-   "guide": "The Platinum. It pops automatically the moment the other 54 trophies are earned — there is nothing extra to do for it. Treat it as the finish line of the roadmap: story first, then side content, then the long collectible and activity grinds, then cleanup. Expect roughly 200 hours in total according to PowerPyx's roadmap estimate.",
+   "guide": "The Platinum. It unlocks on its own the moment the other 54 trophies are earned — there is nothing extra to do for it. Treat it as the finish line of the roadmap: story first, then side content, then the long collectible and activity grinds, then cleanup. Expect roughly 200 hours in total according to PowerPyx's roadmap estimate.",
    "miss_note": "Cannot be missed; it unlocks with the final trophy you earn.",
    "sources": ["Exophase — GTA VI trophy list", "PSNProfiles — Grand Theft Auto VI trophies"]
   },
@@ -43,7 +43,7 @@
    "hidden": true,
    "count": null,
    "roadmap_stage": 1,
-   "guide": "Play through every mission in Chapter 1 until the chapter closes. Chapters in GTA VI are chains of story missions, so just keep taking the next mission marker as it appears and finish each one. The trophy pops when the chapter-complete screen appears.",
+   "guide": "Play through every mission in Chapter 1 until the chapter closes. Chapters in GTA VI are chains of story missions, so keep taking the next mission marker as it appears and finish each one. The trophy pops when the chapter-complete screen appears.",
    "miss_note": "Story trophy; unmissable as long as you finish the chapter.",
    "sources": ["Exophase — GTA VI trophy list", "PSNProfiles — Grand Theft Auto VI trophies"]
   },
@@ -200,8 +200,7 @@
    "guide": "Reach 100% on the in-game completion checklist (Progress, then Stats, then 100% Completion). The checklist is a long list of story, side and collectible tasks — roughly 35 tasks per reported guides — and progress you make before the story ends already counts. Work through it last, after the story, using the tracker in this guide to clear each category one by one. This is the second gold trophy and the real Platinum gate.",
    "miss_note": "Not missable: earlier progress counts, and nothing on the checklist is missable per reported guides.",
    "sources": ["Exophase — GTA VI trophy list", "PSNProfiles — Grand Theft Auto VI trophies", "PowerPyx — GTA 6 trophy guide and roadmap"]
-  }
-,
+  },
   {
    "id": 15,
    "name": "Cunning Stunts",
@@ -425,8 +424,7 @@
    "guide": "Complete 3 collectible card sets. Cards are hidden around Leonida — in shops, houses, vehicles and out-of-the-way spots — and each set needs every card in it. Pick up every card you see while doing other things, and use the in-game collection screen to see which sets are close to complete, then hunt the missing cards deliberately. This is a silver trophy and one of the longer collectible grinds.",
    "miss_note": "Not missable; cards stay collectible in free roam after the story.",
    "sources": ["Exophase — GTA VI trophy list", "PSNProfiles — Grand Theft Auto VI trophies"]
-  }
-,
+  },
   {
    "id": 31,
    "name": "You WAiNKer!",
@@ -636,8 +634,7 @@
    "guide": "Smash your way out of a vehicle showroom in classic style — drive a car straight through the showroom glass and out onto the street. Pick a showroom, get a fast car inside or aimed at it, and floor it through the front window. It is the classic GTA showroom smash: the trophy is about the spectacle, so commit to it and enjoy the alarms.",
    "miss_note": "Not missable; showrooms stay in the world.",
    "sources": ["Exophase — GTA VI trophy list", "PSNProfiles — Grand Theft Auto VI trophies"]
-  }
-,
+  },
   {
    "id": 46,
    "name": "Let’s Go Bowling",

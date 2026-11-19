@@ -1,21 +1,15 @@
-// Leonida Ledger: this entry is a fresh guide, tracker and roadmap for
-// the 55 official GTA VI trophies — the plumbing below just ships app/
-// and screenshots/ and writes the dossier the judge reads.
-// A working gta6-trophy-guide-01 entry (Node 22, standard library only): the guide is this directory's app/ folder,
-// plain static files a browser opens at app/index.html (ES modules, CSS, no build step), offline: it loads nothing
-// over the network, and its trophy list and guides are app/data/trophies.json. The program hands it in: it copies app/
-// and screenshots/ from beside this file to /output and writes /output/dossier.json, the summary the judge reads (your
-// screenshots, the first load's files and bytes, and your source), with the vendored make.fun library. Leave
-// vendor/makefun-frontend.ts as it is: the scorer requires dossier.json to be byte for byte what its own copy writes.
+// Leonida Ledger — entry program for gta6-trophy-guide-01.
+// It ships the finished guide (app/) and its screenshots to the output
+// folder and writes dossier.json with the kit's vendored builder, so the
+// judge can read the guide's outline and screenshots. The app itself is
+// plain static files under app/: no build step, no network at runtime,
+// trophy data in app/data/trophies.json. Keep vendor/makefun-frontend.ts
+// untouched — the scorer rebuilds the dossier with its own copy and the
+// two must match byte for byte.
 //
-// Only the plumbing, not a winner: a plain checklist of the 55 trophies with a one-line hint each. Write a real guide
-// for every trophy in your own words, a roadmap to the platinum, filters and a spoiler setting in app/, put 3 or 4 PNG
-// or JPEG screenshots of it in screenshots/ (the first by name is the cover; shots.json says which views this
-// starter's were taken of), and run it.
-//
-// Serve it locally with `node serve.ts`, then open http://localhost:8080.
-// Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:
+// Run it locally with:
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+// Serve the app with `node serve.ts`, then open http://localhost:8080.
 
 import { cpSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';

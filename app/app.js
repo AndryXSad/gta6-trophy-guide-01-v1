@@ -209,6 +209,8 @@ function openModal(t) {
 
   modal.append(title, desc, guideHead, guide, missHead, miss, srcHead, src, row);
   backdrop.classList.add('open');
+  title.setAttribute('tabindex', '-1');
+  title.focus();
 }
 
 function closeModal() {
