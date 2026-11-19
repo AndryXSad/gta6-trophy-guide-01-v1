@@ -4,77 +4,77 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Leonida Ledger — GTA VI Trophy Guide &amp; Tracker</title>
-<meta name="description" content="All 55 official GTA VI trophies on PS5: a guide with sources, a roadmap to the Platinum, missable flags, and a progress tracker that saves in your browser.">
+<meta name="description" content="Every one of the 55 official GTA VI trophies on PS5, with a guide for each, a road to the Platinum, missable warnings, and a tracker that remembers your progress in the browser.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="topbar">
+<header class="masthead">
   <h1>Leonida Ledger</h1>
-  <p class="tagline">GTA VI trophy guide &amp; tracker — all 55 official PS5 trophies, 1 Platinum · 2 Gold · 6 Silver · 46 Bronze. No online trophies. About 200 hours to Platinum.</p>
-  <p class="honesty">Honest note: the game launched 19 November 2026 and the 55-name list was reported 18 November 2026. Every guide here is written in our own words from the official trophy descriptions. Where a step or location is not in the official description, the guide says so — verify it in-game before you trust it.</p>
+  <p class="lede">Your GTA VI trophy guide and tracker — the full official list of 55 PS5 trophies: 1 Platinum · 2 Gold · 6 Silver · 46 Bronze. No online trophies. Around 200 hours to the Platinum.</p>
+  <p class="caution">A straight word before you start: the game launched 19 November 2026 and the 55-name list was reported 18 November 2026. Each guide here is written fresh for this page from the official trophy descriptions. Where a step or a place is not stated in the official description, the guide says so — check it in the game before you rely on it.</p>
 </header>
 
 <main>
-  <section class="progress-card" aria-label="Progress">
-    <div class="progress-line">
-      <strong id="progress-text">0 / 55 earned</strong>
+  <section class="progress-panel" aria-label="Progress">
+    <div class="progress-head">
+      <strong id="progress-label">0 / 55 earned</strong>
       <span id="progress-pct">0% to Platinum</span>
     </div>
-    <div class="bar" role="progressbar" aria-label="Trophy progress" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0"><div id="progress-fill"></div></div>
-    <div class="grade-chips" id="grade-chips"></div>
+    <div class="meter" role="progressbar" aria-label="Trophy progress" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0"><div id="progress-meter"></div></div>
+    <div class="grade-summary" id="grade-summary"></div>
   </section>
 
-  <div class="toolbar">
-    <input type="search" id="search" placeholder="Search trophies by name or description…" aria-label="Search trophies">
-    <div class="pill-row" id="kind-pills" role="group" aria-label="Filter by kind"></div>
-    <select id="grade-filter" aria-label="Filter by grade">
+  <div class="controls">
+    <input type="search" id="query" placeholder="Search trophies by name or description…" aria-label="Search trophies">
+    <div class="kind-row" id="kind-row" role="group" aria-label="Filter by kind"></div>
+    <select id="grade-pick" aria-label="Filter by grade">
       <option value="all">All grades</option>
       <option value="platinum">Platinum</option>
       <option value="gold">Gold</option>
       <option value="silver">Silver</option>
       <option value="bronze">Bronze</option>
     </select>
-    <select id="status-filter" aria-label="Filter by status">
+    <select id="state-pick" aria-label="Filter by status">
       <option value="all">All statuses</option>
       <option value="earned">Earned</option>
       <option value="unearned">Not earned yet</option>
     </select>
   </div>
 
-  <div class="spoiler-row">
-    <label><input type="checkbox" id="spoiler-toggle" checked> Hide story spoilers</label>
-    <span>Story trophy names stay hidden until earned. Turn it off to see everything.</span>
+  <div class="spoiler-line">
+    <label><input type="checkbox" id="spoiler-box" checked> Hide story spoilers</label>
+    <span>Story trophy names stay hidden until earned. Switch it off to see everything.</span>
   </div>
 
-  <div class="actions">
-    <button class="btn primary" id="export-btn" type="button">Export progress (JSON)</button>
-    <label class="btn" for="import-file">Import progress</label>
-    <input id="import-file" type="file" accept="application/json" hidden>
-    <button class="btn danger" id="reset-btn" type="button">Reset progress</button>
+  <div class="tool-row">
+    <button class="action-btn main-action" id="export-action" type="button">Export progress (JSON)</button>
+    <label class="action-btn" for="import-pick">Import progress</label>
+    <input id="import-pick" type="file" accept="application/json" hidden>
+    <button class="action-btn warn-action" id="reset-action" type="button">Reset progress</button>
   </div>
 
-  <p class="result-count" id="result-count"></p>
-  <ul class="trophy-list" id="trophy-list"></ul>
+  <p class="match-line" id="match-count"></p>
+  <ul class="ledger-list" id="ledger-list"></ul>
 
   <section class="roadmap" id="roadmap-section">
     <h2>Roadmap to the Platinum</h2>
-    <p>Five stages, in order. Story first — it unlocks the map, the activities and most of the side content — then the grinds, then cleanup.</p>
+    <p>Five phases, in order. Story first — it unlocks the map, the activities and most of the side content — then the grinds, then cleanup.</p>
     <div id="roadmap"></div>
   </section>
 
   <section class="about">
     <h2>About this guide</h2>
     <ul>
-      <li><b>Sources:</b> trophy names, descriptions and grades follow the official list as reported by Exophase and PSNProfiles; roadmap and missable notes follow PowerPyx's GTA 6 trophy guide and roadmap. Each trophy page in this guide names its sources.</li>
-      <li><b>No online trophies:</b> the official list has no online trophy, so the Platinum is entirely single-player.</li>
-      <li><b>One possibly missable trophy:</b> Positive Mental Attitude — meditate at the Chapter 1 spot before the chapter ends, and keep a manual save at the start of every chapter. Reported guides note GTA VI has no mission replay.</li>
+      <li><b>Sources:</b> trophy names, descriptions and grades follow the official list as reported by Exophase and PSNProfiles; the roadmap and the missable notes follow PowerPyx's GTA 6 trophy guide and roadmap. Every trophy's detail card names its sources.</li>
+      <li><b>No online trophies:</b> the official list holds no online trophy, so the Platinum is entirely single-player.</li>
+      <li><b>One possibly missable trophy:</b> Positive Mental Attitude — meditate at the Chapter 1 spot before the chapter ends, and keep a manual save at the start of every chapter. Reported guides say GTA VI has no mission replay.</li>
       <li><b>Privacy:</b> your progress lives only in this browser (localStorage). Export it as JSON to back it up or move it to another device. Nothing is sent anywhere — the app makes no network requests at all.</li>
     </ul>
   </section>
 </main>
 
-<div class="modal-backdrop" id="modal-backdrop">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" id="modal"></div>
+<div class="detail-layer" id="detail-layer">
+  <div class="detail-card" role="dialog" aria-modal="true" aria-labelledby="detail-title" id="detail-card"></div>
 </div>
 
 <footer>

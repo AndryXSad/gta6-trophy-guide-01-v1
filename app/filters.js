@@ -1,42 +1,80 @@
-// Leonida Ledger — filtering. One job: given the trophy list, the
-// current controls and the earned set, return the trophies to show.
-// Kinds: story, missable, collectible, activity, crime, side, platinum.
+// Leonida Ledger — picking which trophies to show. The list page asks
+// this module one question: given everything on the page (the kind pill,
+// the grade and status dropdowns, the search box and the earned set),
+// which trophies survive? Each rule is a small yes/no test, applied in
+// turn, so adding a new filter later means adding one test, not
+// rewriting the list.
 
-export const KIND_LABELS = {
-  all: 'All',
-  story: 'Story',
-  missable: 'Missable',
-  collectible: 'Collectibles',
-  activity: 'Activities',
-  crime: 'Crime',
-  side: 'Side & strange',
-  platinum: 'Platinum',
-};
+// The pills across the top of the list. "collectibles" is the label the
+// page shows; internally those trophies carry group "collectible", and
+// "activities" maps the same way onto group "activity".
+export const GROUP_PILLS = [
+  ['all', 'All'],
+  ['story', 'Story'],
+  ['missable', 'Missable'],
+  ['collectibles', 'Collectibles'],
+  ['activities', 'Activities'],
+  ['crime', 'Crime'],
+  ['side', 'Side & strange'],
+  ['platinum', 'Platinum'],
+];
 
-export function applyFilters(trophies, { kind, grade, status, query, earned }) {
-  const needle = query.trim().toLowerCase();
-  return trophies.filter((t) => {
-    if (kind !== 'all') {
-      if (kind === 'missable' && !t.missable) return false;
-      if (kind !== 'missable' && t.kind !== kind) return false;
-    }
-    if (grade !== 'all' && t.grade !== grade) return false;
-    if (status === 'earned' && !earned.has(t.id)) return false;
-    if (status === 'unearned' && earned.has(t.id)) return false;
-    if (needle) {
-      const hay = `${t.name} ${t.description} ${t.guide}`.toLowerCase();
-      if (!hay.includes(needle)) return false;
-    }
-    return true;
-  });
+// The group a pill stands for in the data. Pills without an entry here
+// match a group of the same name; "missable" is special and matches the
+// missable flag instead of a group.
+const PILL_TO_GROUP = { collectibles: 'collectible', activities: 'activity' };
+
+function groupMatches(trophy, pill) {
+  if (pill === 'all') return true;
+  if (pill === 'missable') return trophy.missable === true;
+  return trophy.group === (PILL_TO_GROUP[pill] ?? pill);
 }
 
-export function gradeCounts(trophies, earned) {
-  const counts = {};
-  for (const t of trophies) {
-    counts[t.grade] = counts[t.grade] || { total: 0, earned: 0 };
-    counts[t.grade].total += 1;
-    if (earned.has(t.id)) counts[t.grade].earned += 1;
+function gradeMatches(trophy, grade) {
+  return grade === 'all' || trophy.grade === grade;
+}
+
+function stateMatches(trophy, state, earned) {
+  if (state === 'earned') return earned.has(trophy.id);
+  if (state === 'unearned') return !earned.has(trophy.id);
+  return true;
+}
+
+function textMatches(trophy, needle) {
+  if (!needle) return true;
+  const haystack = [
+    trophy.name,
+    trophy.official,
+    trophy.guide,
+    ...(trophy.steps ?? []),
+  ]
+    .join(' ')
+    .toLowerCase();
+  return haystack.includes(needle);
+}
+
+// The single entry point the page uses. `criteria` carries the four
+// controls; `earned` is the set of ticked-off ids.
+export function selectTrophies(list, criteria, earned) {
+  const needle = criteria.text.trim().toLowerCase();
+  return list.filter(
+    (trophy) =>
+      groupMatches(trophy, criteria.group) &&
+      gradeMatches(trophy, criteria.grade) &&
+      stateMatches(trophy, criteria.state, earned) &&
+      textMatches(trophy, needle),
+  );
+}
+
+// Per-grade totals for the progress strip: how many of each grade exist
+// and how many of them are already earned.
+export function tallyByGrade(list, earned) {
+  const tally = {};
+  for (const trophy of list) {
+    const slot = tally[trophy.grade] ?? { total: 0, earned: 0 };
+    slot.total += 1;
+    if (earned.has(trophy.id)) slot.earned += 1;
+    tally[trophy.grade] = slot;
   }
-  return counts;
+  return tally;
 }
